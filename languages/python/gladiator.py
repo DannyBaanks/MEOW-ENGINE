@@ -25,6 +25,8 @@ def validate(candidate):
         return False, "el gato no tiene dos ojos"
     if rows[0].count("/") != 2 or rows[0].count("\\") != 2:
         return False, "el gato no tiene dos orejas"
+    if rows[2].count(">") != 1 or rows[2].count("<") != 1:
+        return False, "el gato no tiene bigotes"
     return True, "es un gato"
 
 

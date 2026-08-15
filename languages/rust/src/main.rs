@@ -59,6 +59,9 @@ fn validate(cat: &str) -> (bool, &'static str) {
     if cat.contains('\u{0}') { return (false, "hay un agujero en el gato"); }
     if rows[1].matches('o').count() != 2 { return (false, "el gato no tiene dos ojos"); }
     if rows[0].matches('/').count() != 2 { return (false, "el gato no tiene dos orejas"); }
+    if rows[2].matches('>').count() != 1 || rows[2].matches('<').count() != 1 {
+        return (false, "el gato no tiene bigotes");
+    }
     (true, "es un gato")
 }
 

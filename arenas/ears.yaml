@@ -1,4 +1,5 @@
-validators: 5
+# validators sube a 5 cuando lleguen los 37 gladiadores de F6.
+validators: 2
 consensus: unanimous
 adversarial: true
 scoring: default
