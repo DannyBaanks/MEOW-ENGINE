@@ -1,0 +1,26 @@
+{
+  "language": "dart",
+  "runtime": {
+    "cmd": [
+      "dart",
+      "{root}/gladiator.dart"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

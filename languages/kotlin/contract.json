@@ -1,0 +1,26 @@
+{
+  "language": "kotlin",
+  "runtime": {
+    "cmd": [
+      "kotlin",
+      "{root}/gladiator.kts"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

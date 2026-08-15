@@ -1,0 +1,26 @@
+{
+  "language": "perl",
+  "runtime": {
+    "cmd": [
+      "perl",
+      "{root}/gladiator.pl"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

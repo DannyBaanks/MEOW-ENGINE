@@ -1,0 +1,28 @@
+{
+  "language": "powershell",
+  "runtime": {
+    "cmd": [
+      "powershell",
+      "-NoProfile",
+      "-File",
+      "{root}/gladiator.ps1"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

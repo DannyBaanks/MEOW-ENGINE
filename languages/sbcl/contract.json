@@ -1,0 +1,27 @@
+{
+  "language": "sbcl",
+  "runtime": {
+    "cmd": [
+      "sbcl",
+      "--script",
+      "{root}/gladiator.lisp"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

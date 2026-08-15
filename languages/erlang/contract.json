@@ -1,0 +1,26 @@
+{
+  "language": "erlang",
+  "runtime": {
+    "cmd": [
+      "escript",
+      "{root}/gladiator.escript"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

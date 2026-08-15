@@ -1,0 +1,27 @@
+{
+  "language": "golang",
+  "runtime": {
+    "cmd": [
+      "go",
+      "run",
+      "{root}/gladiator.go"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

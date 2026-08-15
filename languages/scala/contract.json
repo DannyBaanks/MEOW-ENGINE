@@ -1,0 +1,26 @@
+{
+  "language": "scala",
+  "runtime": {
+    "cmd": [
+      "scala",
+      "{root}/gladiator.scala"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

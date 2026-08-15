@@ -1,0 +1,28 @@
+{
+  "language": "jq",
+  "runtime": {
+    "cmd": [
+      "jq",
+      "-Rr",
+      "-f",
+      "{root}/gladiator.jq"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

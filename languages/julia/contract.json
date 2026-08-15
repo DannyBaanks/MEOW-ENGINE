@@ -1,0 +1,26 @@
+{
+  "language": "julia",
+  "runtime": {
+    "cmd": [
+      "julia",
+      "{root}/gladiator.jl"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

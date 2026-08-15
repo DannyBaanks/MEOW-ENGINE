@@ -1,0 +1,26 @@
+{
+  "language": "racket",
+  "runtime": {
+    "cmd": [
+      "racket",
+      "{root}/gladiator.rkt"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

@@ -17,16 +17,17 @@ def test_ablation_changes_the_artifact():
 
 
 def test_ablation_of_the_only_builder_breaks_the_cat():
-    """Regla 1: sin constructores, no hay gato. Con el roster F1-F5 no hay un
-    constructor unico (python y rust construyen las 10 arenas), asi que la
-    ablacion quita a todos los que construyen y exige el agujero."""
+    """Regla 1: sin constructores, no hay gato. La ablacion quita a TODOS los
+    gladiadores que declaran "construct" (sean 3 o 40) y exige el agujero."""
     from pathlib import Path
+    from harness.roster import discover
     from harness.tournament import run_tournament
-    base = Path(__file__).resolve().parent.parent / "languages"
-    contracts = [base / lang / "contract.json" for lang in ("python", "rust", "brainfuck")]
+    gladiators = discover()
+    builders = [g for g in gladiators if "construct" in g.disciplines]
     hidden = {}
     try:
-        for c in contracts:
+        for g in builders:
+            c = (g.root / "contract.json")
             h = c.with_suffix(".json.ablated")
             c.rename(h)
             hidden[c] = h

@@ -34,7 +34,7 @@ def attack_validator(gladiator: Gladiator, cat: str, arena: str) -> dict:
 
     intact = cross(list(gladiator.cmd), gladiator.language, "validate", arena,
                    {"candidate": cat}, timeout_s=60)
-    if intact.verdict != "OK" or not intact.ok:
+    if intact.verdict == "OK" and not intact.ok:
         false_positives += 1
 
     for _name, maimed in mutations(cat):

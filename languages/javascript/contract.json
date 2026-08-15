@@ -1,0 +1,26 @@
+{
+  "language": "javascript",
+  "runtime": {
+    "cmd": [
+      "node",
+      "{root}/gladiator.js"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

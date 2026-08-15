@@ -1,0 +1,28 @@
+{
+  "language": "fsharp",
+  "runtime": {
+    "cmd": [
+      "dotnet",
+      "fsi",
+      "--quiet",
+      "{root}/gladiator.fsx"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

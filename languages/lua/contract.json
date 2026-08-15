@@ -1,0 +1,26 @@
+{
+  "language": "lua",
+  "runtime": {
+    "cmd": [
+      "lua",
+      "{root}/gladiator.lua"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

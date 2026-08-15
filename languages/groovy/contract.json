@@ -1,0 +1,26 @@
+{
+  "language": "groovy",
+  "runtime": {
+    "cmd": [
+      "groovy",
+      "{root}/gladiator.groovy"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}

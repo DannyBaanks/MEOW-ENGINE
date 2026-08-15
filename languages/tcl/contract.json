@@ -1,0 +1,26 @@
+{
+  "language": "tcl",
+  "runtime": {
+    "cmd": [
+      "tclsh",
+      "{root}/gladiator.tcl"
+    ],
+    "native": true
+  },
+  "disciplines": [
+    "construct",
+    "validate"
+  ],
+  "arenas": [
+    "cheeks",
+    "ears",
+    "eyes",
+    "geometry",
+    "head_top",
+    "mouth",
+    "newlines",
+    "nose",
+    "padding",
+    "whiskers"
+  ]
+}
