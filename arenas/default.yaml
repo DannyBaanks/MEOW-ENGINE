@@ -1,0 +1,4 @@
+validators: 3
+consensus: majority
+adversarial: true
+scoring: default
