@@ -1,0 +1,6 @@
+{
+  "language": "brainfuck",
+  "runtime": {"cmd": ["python", "{root}/adapter.py"], "native": false},
+  "disciplines": ["construct"],
+  "arenas": ["ears", "padding"]
+}
