@@ -1,0 +1,6 @@
+{
+  "language": "jajaja",
+  "runtime": {"cmd": ["python", "-c", "raise SystemExit('el Cesar no compite')"], "native": false},
+  "disciplines": [],
+  "arenas": []
+}
