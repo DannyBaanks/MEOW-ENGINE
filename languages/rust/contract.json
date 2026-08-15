@@ -1,0 +1,10 @@
+{
+  "language": "rust",
+  "runtime": {
+    "cmd": ["cargo", "run", "--quiet", "--manifest-path", "{root}/Cargo.toml"],
+    "native": true
+  },
+  "disciplines": ["construct", "validate"],
+  "arenas": ["cheeks", "ears", "eyes", "geometry", "head_top",
+             "mouth", "newlines", "nose", "padding", "whiskers"]
+}
