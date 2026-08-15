@@ -1,0 +1,16 @@
+{
+  "rows": 3,
+  "widths": [6, 7, 6],
+  "pieces": {
+    "ears":     {"cells": [[0,1],[0,2],[0,4],[0,5]], "chars": "/\\/\\"},
+    "head_top": {"cells": [[0,3]],                   "chars": "_"},
+    "cheeks":   {"cells": [[1,0],[1,6]],             "chars": "()"},
+    "eyes":     {"cells": [[1,2],[1,4]],             "chars": "oo"},
+    "nose":     {"cells": [[1,3]],                   "chars": "."},
+    "whiskers": {"cells": [[2,1],[2,5]],             "chars": "><"},
+    "mouth":    {"cells": [[2,3]],                   "chars": "^"},
+    "padding":  {"cells": [[0,0],[1,1],[1,5],[2,0],[2,2],[2,4]], "chars": "      "},
+    "geometry": {"cells": [],                        "chars": ""},
+    "newlines": {"cells": [],                        "chars": ""}
+  }
+}
