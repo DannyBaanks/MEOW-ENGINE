@@ -1,46 +1,33 @@
 # languages/python/gladiator.py
-"""Gladiador Python. Construye cualquier pieza y valida invariantes del gato."""
+"""Python gladiator: runs Brainfuck programs (inverted!)."""
 import json
 import sys
 from pathlib import Path
 
-SPEC = json.loads(
-    (Path(__file__).resolve().parents[2] / "cat" / "spec.json").read_text(encoding="utf-8")
-)
+ROOT = Path(__file__).resolve()
+sys.path.insert(0, str(ROOT.parents[2]))
 
+from interpreters.brainfuck import run
 
-def construct(arena):
-    return SPEC["pieces"][arena]["chars"]
-
-
-def validate(candidate):
-    rows = candidate.split("\n")
-    if len(rows) != SPEC["rows"]:
-        return False, "filas != %d" % SPEC["rows"]
-    if [len(r) for r in rows] != SPEC["widths"]:
-        return False, "anchos != %s" % SPEC["widths"]
-    if "\x00" in candidate:
-        return False, "hay un agujero en el gato"
-    if rows[1].count("o") != 2:
-        return False, "el gato no tiene dos ojos"
-    if rows[0].count("/") != 2 or rows[0].count("\\") != 2:
-        return False, "el gato no tiene dos orejas"
-    if rows[2].count(">") != 1 or rows[2].count("<") != 1:
-        return False, "el gato no tiene bigotes"
-    return True, "es un gato"
+BF_ROOT = ROOT.parents[1] / "brainfuck"
+PROGRAMS = {"ears": "construct_ears.bf", "padding": "construct_padding.bf"}
 
 
 def main():
     req = json.loads(sys.stdin.read())
-    cap, arena = req["discipline"], req["arena"]
 
-    if cap == "construct":
-        print(json.dumps({"ok": True, "output": construct(arena)}))
-    elif cap == "validate":
-        ok, reason = validate(req["payload"].get("candidate", ""))
-        print(json.dumps({"ok": ok, "output": reason}))
-    else:
-        print(json.dumps({"ok": False, "output": "disciplina desconocida"}))
+    if req["discipline"] != "construct" or req["arena"] not in PROGRAMS:
+        print(json.dumps({"ok": False, "output": "no compito en eso"}))
+        return
+
+    source = (BF_ROOT / PROGRAMS[req["arena"]]).read_text(encoding="utf-8")
+    output, _steps, status = run(source, max_steps=200000)
+
+    if status != "HALTED":
+        print(json.dumps({"ok": False, "output": "status=%s" % status}))
+        return
+
+    print(json.dumps({"ok": True, "output": output}))
 
 
 if __name__ == "__main__":

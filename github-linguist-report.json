@@ -1,0 +1,586 @@
+{
+  "files_with_unknown_language": [
+    ".gitattributes",
+    ".gitignore",
+    "LICENSE",
+    "pytest.ini"
+  ],
+  "github_consumes": [
+    ".gitattributes commiteado (linguist-language / -documentation / -vendored / -generated / -detectable)",
+    "solo lenguajes presentes en languages.yml; el resto se ignora"
+  ],
+  "github_does_not_consume": [
+    "language-bar.json (reporte propio de ProjectMap)"
+  ],
+  "languages": [
+    {
+      "files": 4,
+      "linguist": "Brainfuck",
+      "name": "brainfuck"
+    },
+    {
+      "files": 1,
+      "linguist": "C",
+      "name": "c"
+    },
+    {
+      "files": 2,
+      "linguist": "CoffeeScript",
+      "name": "coffeescript"
+    },
+    {
+      "files": 2,
+      "linguist": "Common Lisp",
+      "name": "common-lisp"
+    },
+    {
+      "files": 1,
+      "linguist": "C++",
+      "name": "cpp"
+    },
+    {
+      "files": 1,
+      "linguist": "Crystal",
+      "name": "crystal"
+    },
+    {
+      "files": 1,
+      "linguist": "C#",
+      "name": "csharp"
+    },
+    {
+      "files": 1,
+      "linguist": "D",
+      "name": "d"
+    },
+    {
+      "files": 2,
+      "linguist": "Dart",
+      "name": "dart"
+    },
+    {
+      "files": 2,
+      "linguist": "Elixir",
+      "name": "elixir"
+    },
+    {
+      "files": 2,
+      "linguist": "Erlang",
+      "name": "erlang"
+    },
+    {
+      "files": 2,
+      "linguist": "F#",
+      "name": "fsharp"
+    },
+    {
+      "files": 2,
+      "linguist": "Go",
+      "name": "go"
+    },
+    {
+      "files": 2,
+      "linguist": "Groovy",
+      "name": "groovy"
+    },
+    {
+      "files": 2,
+      "linguist": "Haskell",
+      "name": "haskell"
+    },
+    {
+      "files": 3,
+      "linguist": null,
+      "name": "jajaja"
+    },
+    {
+      "files": 2,
+      "linguist": "Java",
+      "name": "java"
+    },
+    {
+      "files": 2,
+      "linguist": "JavaScript",
+      "name": "javascript"
+    },
+    {
+      "files": 2,
+      "linguist": "jq",
+      "name": "jq"
+    },
+    {
+      "files": 3,
+      "linguist": "JSON",
+      "name": "json"
+    },
+    {
+      "files": 2,
+      "linguist": "Julia",
+      "name": "julia"
+    },
+    {
+      "files": 2,
+      "linguist": "Kotlin",
+      "name": "kotlin"
+    },
+    {
+      "files": 2,
+      "linguist": "Lua",
+      "name": "lua"
+    },
+    {
+      "files": 1,
+      "linguist": "Markdown",
+      "name": "markdown"
+    },
+    {
+      "files": 1,
+      "linguist": "Nim",
+      "name": "nim"
+    },
+    {
+      "files": 1,
+      "linguist": "OCaml",
+      "name": "ocaml"
+    },
+    {
+      "files": 2,
+      "linguist": "Perl",
+      "name": "perl"
+    },
+    {
+      "files": 2,
+      "linguist": "PHP",
+      "name": "php"
+    },
+    {
+      "files": 2,
+      "linguist": "PowerShell",
+      "name": "powershell"
+    },
+    {
+      "files": 2,
+      "linguist": "Prolog",
+      "name": "prolog"
+    },
+    {
+      "files": 40,
+      "linguist": "Python",
+      "name": "python"
+    },
+    {
+      "files": 2,
+      "linguist": "Racket",
+      "name": "racket"
+    },
+    {
+      "files": 2,
+      "linguist": "Ruby",
+      "name": "ruby"
+    },
+    {
+      "files": 4,
+      "linguist": "Rust",
+      "name": "rust"
+    },
+    {
+      "files": 2,
+      "linguist": "Scala",
+      "name": "scala"
+    },
+    {
+      "files": 2,
+      "linguist": "Swift",
+      "name": "swift"
+    },
+    {
+      "files": 2,
+      "linguist": "Tcl",
+      "name": "tcl"
+    },
+    {
+      "files": 11,
+      "linguist": "Text",
+      "name": "text"
+    },
+    {
+      "files": 1,
+      "linguist": "TypeScript",
+      "name": "typescript"
+    },
+    {
+      "files": 1,
+      "linguist": null,
+      "name": "v"
+    },
+    {
+      "files": 2,
+      "linguist": "WebAssembly",
+      "name": "webassembly-text"
+    },
+    {
+      "files": 3,
+      "linguist": "YAML",
+      "name": "yaml"
+    },
+    {
+      "files": 1,
+      "linguist": "Zig",
+      "name": "zig"
+    }
+  ],
+  "linguist_reference": "github-linguist/linguist@main (lib/linguist/languages.yml, docs/overrides.md; consultado 2026-08-15)",
+  "planned_overrides": [
+    {
+      "attribute": "linguist-language=Brainfuck",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/brainfuck/adapter.py"
+    },
+    {
+      "attribute": "linguist-language=Brainfuck",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/brainfuck/construct_ears.bf"
+    },
+    {
+      "attribute": "linguist-language=Brainfuck",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/brainfuck/construct_padding.bf"
+    },
+    {
+      "attribute": "linguist-language=Brainfuck",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/brainfuck/contract.json"
+    },
+    {
+      "attribute": "linguist-language=C",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/c/hello.c"
+    },
+    {
+      "attribute": "linguist-language=CoffeeScript",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/coffeescript/contract.json"
+    },
+    {
+      "attribute": "linguist-language=CoffeeScript",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/coffeescript/gladiator.coffee"
+    },
+    {
+      "attribute": "linguist-language=C++",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/cpp/hello.cpp"
+    },
+    {
+      "attribute": "linguist-language=Crystal",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/crystal/hello.cr"
+    },
+    {
+      "attribute": "linguist-language=C#",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/csharp/Program.cs"
+    },
+    {
+      "attribute": "linguist-language=Dart",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/dart/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Dart",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/dart/gladiator.dart"
+    },
+    {
+      "attribute": "linguist-language=D",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/dlang/hello.d"
+    },
+    {
+      "attribute": "linguist-language=Elixir",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/elixir/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Elixir",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/elixir/gladiator.exs"
+    },
+    {
+      "attribute": "linguist-language=WebAssembly",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/elm/Main.elm"
+    },
+    {
+      "attribute": "linguist-language=Erlang",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/erlang/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Erlang",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/erlang/gladiator.escript"
+    },
+    {
+      "attribute": "linguist-language=F#",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/fsharp/contract.json"
+    },
+    {
+      "attribute": "linguist-language=F#",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/fsharp/gladiator.fsx"
+    },
+    {
+      "attribute": "linguist-language=Go",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/golang/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Go",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/golang/gladiator.go"
+    },
+    {
+      "attribute": "linguist-language=Groovy",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/groovy/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Groovy",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/groovy/gladiator.groovy"
+    },
+    {
+      "attribute": "linguist-language=Haskell",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/haskell/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Haskell",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/haskell/gladiator.hs"
+    },
+    {
+      "attribute": "linguist-language=Java",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/java/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Java",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/java/gladiator.java"
+    },
+    {
+      "attribute": "linguist-language=JavaScript",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/javascript/contract.json"
+    },
+    {
+      "attribute": "linguist-language=JavaScript",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/javascript/gladiator.js"
+    },
+    {
+      "attribute": "linguist-language=jq",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/jq/contract.json"
+    },
+    {
+      "attribute": "linguist-language=jq",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/jq/gladiator.jq"
+    },
+    {
+      "attribute": "linguist-language=Julia",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/julia/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Julia",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/julia/gladiator.jl"
+    },
+    {
+      "attribute": "linguist-language=Kotlin",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/kotlin/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Kotlin",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/kotlin/gladiator.kts"
+    },
+    {
+      "attribute": "linguist-language=Lua",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/lua/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Lua",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/lua/gladiator.lua"
+    },
+    {
+      "attribute": "linguist-language=Nim",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/nim/hello.nim"
+    },
+    {
+      "attribute": "linguist-language=OCaml",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/ocaml/hello.ml"
+    },
+    {
+      "attribute": "linguist-language=WebAssembly",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/odin/hello.odin"
+    },
+    {
+      "attribute": "linguist-language=Perl",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/perl/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Perl",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/perl/gladiator.pl"
+    },
+    {
+      "attribute": "linguist-language=PHP",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/php/contract.json"
+    },
+    {
+      "attribute": "linguist-language=PHP",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/php/gladiator.php"
+    },
+    {
+      "attribute": "linguist-language=PowerShell",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/powershell/contract.json"
+    },
+    {
+      "attribute": "linguist-language=PowerShell",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/powershell/gladiator.ps1"
+    },
+    {
+      "attribute": "linguist-language=Prolog",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/prolog/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Prolog",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/prolog/gladiator.pl"
+    },
+    {
+      "attribute": "linguist-language=Python",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/python/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Python",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/python/gladiator.py"
+    },
+    {
+      "attribute": "linguist-language=Racket",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/racket/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Racket",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/racket/gladiator.rkt"
+    },
+    {
+      "attribute": "linguist-language=Ruby",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/ruby/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Ruby",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/ruby/gladiator.rb"
+    },
+    {
+      "attribute": "linguist-language=Rust",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/rust/Cargo.lock"
+    },
+    {
+      "attribute": "linguist-language=Rust",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/rust/Cargo.toml"
+    },
+    {
+      "attribute": "linguist-language=Rust",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/rust/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Rust",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/rust/src/main.rs"
+    },
+    {
+      "attribute": "linguist-language=Common-Lisp",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/sbcl/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Common-Lisp",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/sbcl/gladiator.lisp"
+    },
+    {
+      "attribute": "linguist-language=Scala",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/scala/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Scala",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/scala/gladiator.scala"
+    },
+    {
+      "attribute": "linguist-language=Swift",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/swift/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Swift",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/swift/gladiator.swift"
+    },
+    {
+      "attribute": "linguist-language=Tcl",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/tcl/contract.json"
+    },
+    {
+      "attribute": "linguist-language=Tcl",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/tcl/gladiator.tcl"
+    },
+    {
+      "attribute": "linguist-language=TypeScript",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/typescript/hello.ts"
+    },
+    {
+      "attribute": "linguist-language=Zig",
+      "evidence": "lenguaje DECLARADO en manifest",
+      "path": "languages/zig/hello.zig"
+    }
+  ],
+  "source": "projectmap",
+  "target": "github-linguist",
+  "unsupported_by_linguist": [
+    "jajaja",
+    "v"
+  ]
+}

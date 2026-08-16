@@ -1,6 +1,6 @@
 {
   "language": "brainfuck",
-  "runtime": {"cmd": ["python", "{root}/adapter.py"], "native": false},
-  "disciplines": ["construct"],
-  "arenas": ["ears", "padding"]
+  "runtime": {"cmd": ["./meow-engine"], "native": true},
+  "disciplines": ["validate", "run"],
+  "arenas": ["ears", "cheeks", "padding", "whiskers", "eyes", "mouth", "nose", "geometry", "head_top", "mouth"]
 }

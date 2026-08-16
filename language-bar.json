@@ -1,0 +1,228 @@
+{
+  "languages": [
+    {
+      "files": 4,
+      "fraction": 0.0301,
+      "name": "brainfuck"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "c"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "coffeescript"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "common-lisp"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "cpp"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "crystal"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "csharp"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "d"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "dart"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "elixir"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "erlang"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "fsharp"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "go"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "groovy"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "haskell"
+    },
+    {
+      "files": 3,
+      "fraction": 0.0226,
+      "name": "jajaja"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "java"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "javascript"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "jq"
+    },
+    {
+      "files": 3,
+      "fraction": 0.0226,
+      "name": "json"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "julia"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "kotlin"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "lua"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "markdown"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "nim"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "ocaml"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "perl"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "php"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "powershell"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "prolog"
+    },
+    {
+      "files": 40,
+      "fraction": 0.3008,
+      "name": "python"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "racket"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "ruby"
+    },
+    {
+      "files": 4,
+      "fraction": 0.0301,
+      "name": "rust"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "scala"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "swift"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "tcl"
+    },
+    {
+      "files": 11,
+      "fraction": 0.0827,
+      "name": "text"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "typescript"
+    },
+    {
+      "files": 4,
+      "fraction": 0.0301,
+      "name": "unknown"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "v"
+    },
+    {
+      "files": 2,
+      "fraction": 0.015,
+      "name": "webassembly-text"
+    },
+    {
+      "files": 3,
+      "fraction": 0.0226,
+      "name": "yaml"
+    },
+    {
+      "files": 1,
+      "fraction": 0.0075,
+      "name": "zig"
+    }
+  ],
+  "note": "Reporte propio de ProjectMap. GitHub NO lo consume; no forma parte de la integracion Linguist.",
+  "project": "MEOW-ENGINE",
+  "source": "projectmap",
+  "total_files": 133
+}

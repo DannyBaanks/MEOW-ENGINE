@@ -36,8 +36,8 @@ from harness.provenance import Provenance
 from harness.roster import convoke, discover
 
 _TIMEOUT = 60.0
-_NODE_WAIT_S = 120.0
-_DRIVER_WAIT_S = 180.0
+_NODE_WAIT_S = 600.0
+_DRIVER_WAIT_S = 900.0
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 

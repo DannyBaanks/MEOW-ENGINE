@@ -84,21 +84,21 @@ def if_chain_raw(line_fn, indent: str = "  ") -> str:
     return "\n".join(out)
 
 
-def write_lang(name, ext, cmd, src):
+def write_lang(name, ext, cmd, src, disciplines=None):
     d = ROOT / "languages" / name
     d.mkdir(parents=True, exist_ok=True)
     (d / ("gladiator." + ext)).write_text(src, encoding="utf-8", newline="\n")
     contract = {
         "language": name,
         "runtime": {"cmd": cmd, "native": True},
-        "disciplines": ["construct", "validate"],
+        "disciplines": disciplines if disciplines is not None else ["construct", "validate"],
         "arenas": ARENAS,
     }
     (d / "contract.json").write_text(
-        json.dumps(contract, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        json.dumps(contract, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
-def gen(name, ext, cmd, src, ifs):
+def gen(name, ext, cmd, src, ifs, disciplines=None):
     s = (src
          .replace("__DISCIPLINE__", lit(DISCIPLINE))
          .replace("__MARKER__", lit(MARKER))
@@ -110,8 +110,8 @@ def gen(name, ext, cmd, src, ifs):
 
 
 GENERATED: list[tuple[str, list[str], Path]] = []
-def A(name, ext, cmd, src, ifs):
-    GENERATED.append(gen(name, ext, cmd, src, ifs))
+def A(name, ext, cmd, src, ifs, disciplines=None):
+    GENERATED.append(gen(name, ext, cmd, src, ifs, disciplines=disciplines))
 
 
 # ---------------------------------------------------------------------------

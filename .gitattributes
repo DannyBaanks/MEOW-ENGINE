@@ -6,6 +6,7 @@ languages/brainfuck/adapter.py linguist-language=Brainfuck
 languages/brainfuck/construct_ears.bf linguist-language=Brainfuck
 languages/brainfuck/construct_padding.bf linguist-language=Brainfuck
 languages/brainfuck/contract.json linguist-language=Brainfuck
+engine.bf linguist-language=Brainfuck
 languages/c/hello.c linguist-language=C
 languages/coffeescript/contract.json linguist-language=CoffeeScript
 languages/coffeescript/gladiator.coffee linguist-language=CoffeeScript
