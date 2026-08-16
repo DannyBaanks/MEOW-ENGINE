@@ -72,3 +72,24 @@ languages/tcl/gladiator.tcl linguist-language=Tcl
 languages/typescript/hello.ts linguist-language=TypeScript
 languages/zig/hello.zig linguist-language=Zig
 
+# ============================================================
+# MEOW-ENGINE infrastructure
+# Keep the language bar focused on the gladiators.
+# ============================================================
+
+meow.py linguist-detectable=false
+harness/** linguist-detectable=false
+tests/** linguist-detectable=false
+tools/** linguist-detectable=false
+projectmap/** linguist-detectable=false
+
+# Build / generated artifacts inside language fixtures
+languages/**/build/** linguist-generated
+languages/**/*.o linguist-generated
+languages/**/*.obj linguist-generated
+languages/**/*.exe linguist-generated
+languages/**/*.pdb linguist-generated
+languages/**/*.class linguist-generated
+languages/**/*.bin linguist-generated
+languages/**/*.tasty linguist-generated
+languages/**/.cargo/** linguist-generated
