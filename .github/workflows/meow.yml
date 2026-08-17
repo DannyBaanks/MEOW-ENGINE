@@ -43,9 +43,10 @@ jobs:
       - name: 📝 Update README with cat
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
-          CAT=$(cat cat.txt)
-          cat > README.md <<'EOF'
-# MEOW-ENGINE
+          python -c "
+import os
+cat = open('cat.txt', 'r', encoding='utf-8').read()
+readme = '''# MEOW-ENGINE
 
 El gato más innecesariamente sobre-ingenierizado del mundo.
 
@@ -64,16 +65,19 @@ Todo el proyecto existe para demostrar que todo el proyecto era innecesario.
 
 ### Gatito del día 🐱
 
-\`\`\`
-${CAT}
-\`\`\`
+```
+{cat}
+```
 
-*Actualizado automáticamente por CI • $(date -u +"%Y-%m-%d %H:%M UTC")*
+*Actualizado automáticamente por CI • {date} UTC*
 
 ---
 
 ## En Honor a todos mis gatitas/os 🐱❤️
-EOF
+'''.format(cat=cat, date=__import__('datetime').datetime.utcnow().strftime('%Y-%m-%d %H:%M'))
+          with open('README.md', 'w', encoding='utf-8') as f:
+              f.write(readme)
+          print('README actualizado')
 
       - name: 📤 Commit README if changed
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
