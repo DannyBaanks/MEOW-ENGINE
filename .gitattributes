@@ -75,14 +75,76 @@ languages/zig/hello.zig linguist-language=Zig
 
 # ============================================================
 # MEOW-ENGINE infrastructure
-# Keep the language bar focused on the gladiators.
+# Keep the language bar focused on the GLADIATORS (rare/esoteric langs).
 # ============================================================
 
+# HIDE common/mainstream languages from language bar
 meow.py linguist-detectable=false
 harness/** linguist-detectable=false
 tests/** linguist-detectable=false
 tools/** linguist-detectable=false
 projectmap/** linguist-detectable=false
+
+# MAINSTREAM: hide from language bar (too common)
+languages/python/** linguist-detectable=false
+languages/rust/** linguist-detectable=false
+languages/go/** linguist-detectable=false
+languages/java/** linguist-detectable=false
+languages/swift/** linguist-detectable=false
+languages/javascript/** linguist-detectable=false
+languages/typescript/** linguist-detectable=false
+languages/cpp/** linguist-detectable=false
+languages/c/** linguist-detectable=false
+languages/csharp/** linguist-detectable=false
+languages/php/** linguist-detectable=false
+languages/ruby/** linguist-detectable=false
+
+# RARE/ESOTERIC: PROMOTE these in the language bar
+# Brainfuck - the ultimate esoteric
+languages/brainfuck/** linguist-language=Brainfuck
+
+# Prolog - logic programming
+languages/prolog/** linguist-language=Prolog
+
+# Common Lisp (SBCL) - classic AI language
+languages/sbcl/** linguist-language=Common-Lisp
+
+# Erlang - concurrent functional
+languages/erlang/** linguist-language=Erlang
+
+# Haskell - pure functional
+languages/haskell/** linguist-language=Haskell
+
+# Prolog - logic programming
+languages/prolog/** linguist-language=Prolog
+
+# OCaml - ML family
+languages/ocaml/** linguist-language=OCaml
+
+# F# - .NET functional
+languages/fsharp/** linguist-language=F#
+
+# Elixir - BEAM functional
+languages/elixir/** linguist-language=Elixir
+
+# Clojure (if present) - would be here
+# Clojure/** linguist-language=Clojure
+
+# Scheme (Racket) - Lisp dialect
+languages/racket/** linguist-language=Racket
+
+# Lua - lightweight scripting
+languages/lua/** linguist-language=Lua
+
+# Tcl - embeddable scripting
+languages/tcl/** linguist-language=Tcl
+
+# Prolog again for emphasis
+languages/prolog/** linguist-language=Prolog
+
+# ============================================================
+# Build / generated artifacts
+# ============================================================
 
 # Build / generated artifacts inside language fixtures
 languages/**/build/** linguist-generated
@@ -94,3 +156,10 @@ languages/**/*.class linguist-generated
 languages/**/*.bin linguist-generated
 languages/**/*.tasty linguist-generated
 languages/**/.cargo/** linguist-generated
+
+# Infrastructure
+meow.py linguist-detectable=false
+harness/** linguist-detectable=false
+tests/** linguist-detectable=false
+tools/** linguist-detectable=false
+projectmap/** linguist-detectable=false
