@@ -28,10 +28,10 @@ import time
 from pathlib import Path
 
 from harness import bus
-from harness.arena import load_policy
+from harness.arena import load_policy, reach_consensus
 from harness.cat import arena_names, assemble, load_spec
 from harness.frontier import Crossing, cross
-from harness.judge import attack_validator
+from harness.judge import attack_validator, score
 from harness.provenance import Provenance
 from harness.roster import convoke, discover
 
@@ -57,6 +57,8 @@ def wait_for(bus_path: str, deps: list[str], timeout_s: float = _NODE_WAIT_S) ->
                 name = node[len("done:"):]
                 if name in wanted and name not in collected:
                     collected[name] = entry["value"]
+                elif name in wanted and collected[name] != entry["value"]:
+                    raise RuntimeError("token duplicado y conflictivo: %s" % name)
         if time.monotonic() - start > timeout_s:
             raise TimeoutError("espera dataflow agotada: %s"
                                % sorted(wanted - set(collected)))
@@ -128,7 +130,27 @@ def _work_assemble(bus_path: str) -> None:
 def _work_guard(language: str, bus_path: str) -> None:
     g = next(x for x in discover() if x.language == language)
     cat = wait_for(bus_path, ["cat"])["cat"]["cat"]
-    result = attack_validator(g, cat, "ears")
+    policy = load_policy("ears")
+    intact = cross(
+        list(g.cmd), g.language, "validate", "ears", {"candidate": cat},
+        timeout_s=_TIMEOUT,
+    )
+    result = attack_validator(g, cat, "ears") if policy.adversarial else {
+        "false_positives": 0,
+        "false_negatives": 0,
+        "detected": 0,
+    }
+    result["intact"] = {
+        "ok": intact.ok,
+        "verdict": intact.verdict,
+        "output": intact.output,
+    }
+    result["score"] = score(
+        g,
+        result["detected"],
+        result["false_positives"],
+        result["false_negatives"],
+    ) if policy.scoring == "default" else 0
     bus.publish(bus_path, "done:guard:%s" % language, result)
 
 
@@ -225,6 +247,24 @@ def run_pipeline() -> dict:
             guard[g.language] = wait_for(bus_path, ["guard:%s" % g.language])["guard:%s" % g.language]
         if guard:
             arenas["ears"]["guard"] = guard
+
+        policy = load_policy("ears")
+        votes = [
+            result["intact"]["ok"]
+            for result in guard.values()
+            if result["intact"]["verdict"] == "OK"
+        ][:policy.validators]
+        arenas["ears"]["policy"] = {
+            "validators_required": policy.validators,
+            "consensus": policy.consensus,
+            "adversarial": policy.adversarial,
+            "scoring": policy.scoring,
+            "votes": votes,
+            "accepted": (
+                len(votes) == policy.validators and
+                reach_consensus(policy, votes)
+            ),
+        }
 
         return {"cat": cat, "digest": cat_payload["digest"], "arenas": arenas}
     finally:

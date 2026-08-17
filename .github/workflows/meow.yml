@@ -8,6 +8,13 @@ on:
   schedule:
     - cron: '0 12 * * *'  # Daily at noon (cat feeding time)
 
+permissions:
+  contents: write
+
+concurrency:
+  group: meow-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   test-and-meow:
     runs-on: ubuntu-latest

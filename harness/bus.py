@@ -16,6 +16,7 @@ import os
 import time
 
 _LOCK_SUFFIX = ".lock"
+_STALE_LOCK_S = 30.0
 
 
 def _lock(path: str, timeout: float = 10.0) -> None:
@@ -31,6 +32,18 @@ def _lock(path: str, timeout: float = 10.0) -> None:
             os.close(fd)
             return
         except (FileExistsError, PermissionError):
+            try:
+                stale = time.time() - os.path.getmtime(lock_path) > _STALE_LOCK_S
+            except FileNotFoundError:
+                stale = False
+            if stale:
+                try:
+                    os.remove(lock_path)
+                    start = time.time()
+                    continue
+                except (FileNotFoundError, PermissionError):
+                    start = time.time()
+                    continue
             if time.time() - start > timeout:
                 raise TimeoutError("no pude tomar el lock de %s" % path)
             time.sleep(0.005)

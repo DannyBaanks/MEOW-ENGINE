@@ -27,3 +27,14 @@ def test_missing_arena_leaves_a_hole():
 
 def test_row_widths():
     assert [len(r) for r in CAT.split("\n")] == [6, 7, 6]
+
+
+def test_invalid_spec_is_rejected(tmp_path):
+    path = tmp_path / "spec.json"
+    path.write_text(
+        '{"rows": 1, "widths": [1], "pieces": '
+        '{"bad": {"cells": [[0, 0]], "chars": "XX"}}}',
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="cells/chars"):
+        load_spec(str(path))

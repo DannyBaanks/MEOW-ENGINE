@@ -55,3 +55,21 @@ def test_crash_is_survived():
     )
     assert c.verdict in ("CRASH", "BAD_SCHEMA")
     assert c.ok is False
+
+
+def test_nonzero_exit_is_crash_even_with_valid_json():
+    c = cross(
+        _inline('import sys; print("{\\"ok\\": true}"); sys.exit(3)'),
+        language="fake", discipline="construct", arena="ears", payload={},
+    )
+    assert c.verdict == "CRASH"
+    assert c.ok is False
+
+
+def test_wrong_ok_type_is_bad_schema():
+    c = cross(
+        _inline('print("{\\"ok\\": \\\"false\\\"}")'),
+        language="fake", discipline="construct", arena="ears", payload={},
+    )
+    assert c.verdict == "BAD_SCHEMA"
+    assert c.ok is False

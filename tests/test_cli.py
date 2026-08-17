@@ -31,3 +31,8 @@ def test_single_arena_runs_alone(capsys):
 
 def test_unknown_flag_is_an_error():
     assert main(["--gato"]) != 0
+
+
+def test_help_is_success(capsys):
+    assert main(["--help"]) == 0
+    assert "usage:" in capsys.readouterr().out

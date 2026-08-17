@@ -29,3 +29,14 @@ def test_decode_response_rejects_garbage():
 def test_decode_response_rejects_missing_ok():
     with pytest.raises(ProtocolError):
         decode_response('{"output": "x"}')
+
+
+@pytest.mark.parametrize("raw", ['{"ok": "false"}', '{"ok": 0}', '{"ok": null}'])
+def test_decode_response_requires_boolean_ok(raw):
+    with pytest.raises(ProtocolError):
+        decode_response(raw)
+
+
+def test_decode_response_requires_text_output():
+    with pytest.raises(ProtocolError):
+        decode_response('{"ok": true, "output": 123}')

@@ -24,8 +24,9 @@ def main(argv: list[str] | None = None) -> int:
 
     try:
         args = parser.parse_args(argv)
-    except SystemExit:
-        return 2
+    except SystemExit as exc:
+        # argparse uses exit 0 for --help and 2 for invalid arguments.
+        return exc.code if isinstance(exc.code, int) else 1
 
     if args.list_gladiators:
         for g in discover():

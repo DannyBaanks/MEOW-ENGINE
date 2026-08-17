@@ -26,4 +26,8 @@ def decode_response(raw: str) -> dict:
         raise ProtocolError("respuesta no es un objeto JSON")
     if "ok" not in data:
         raise ProtocolError("respuesta sin campo 'ok'")
+    if type(data["ok"]) is not bool:
+        raise ProtocolError("campo 'ok' debe ser booleano")
+    if "output" in data and not isinstance(data["output"], str):
+        raise ProtocolError("campo 'output' debe ser texto")
     return data

@@ -33,7 +33,7 @@ ZZZzz /,`.-'`'    -.  ;-;;,_
 ]
 
 def main():
-    cat = random.choice(CATS)
+    cat = random.SystemRandom().choice(CATS)
     with open("cat.txt", "w", encoding="utf-8") as f:
         f.write(cat)
     print(cat)
