@@ -34,38 +34,7 @@ jobs:
       - name: 🐱 Generate cat for README
         id: meow
         run: |
-          python -c "
-import random, sys
-cats = [
-    '''      |\\      _,,,---,,_
-ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\ (  '-' 
-    '---''(_/--'  \`-'\\_)''',
-    '''      |\\      _,,,---,,_
-ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\ (  '-' 
-    '---''(_/--'  \\_-')''',
-    '''      |\\      _,,,---,,_
-ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\ (  '-' 
-    '---''(_/--'  \\_\\')''',
-    '''      |
-   / \\__
-  (    @\\___
-  /         O
- /   (_____/
-/_____/   U''',
-    '''      |
-    \\   /
-     |  |
-    /   \\
-   |     |
-   |  .  |
-    \\___/
-    ___|___'''
-]
-print(cats[random.randrange(len(cats))])
-" > cat.txt
+          python generate_cat.py
           cat cat.txt
           echo "meow<<EOF" >> $GITHUB_OUTPUT
           cat cat.txt >> $GITHUB_OUTPUT
