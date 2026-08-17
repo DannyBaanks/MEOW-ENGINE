@@ -44,37 +44,37 @@ jobs:
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
           python -c "
-import os
-cat = open('cat.txt', 'r', encoding='utf-8').read()
-readme = '''# MEOW-ENGINE
+          import os
+          cat = open('cat.txt', 'r', encoding='utf-8').read()
+          readme = '''# MEOW-ENGINE
 
-El gato más innecesariamente sobre-ingenierizado del mundo.
+          El gato más innecesariamente sobre-ingenierizado del mundo.
 
-> **¿Por qué?** Podíamos. · **¿Qué hace?** Hace un gato. · **¿40 lenguajes?** Sí.
+          > **¿Por qué?** Podíamos. · **¿Qué hace?** Hace un gato. · **¿40 lenguajes?** Sí.
 
-    python meow.py --tournament
+              python meow.py --tournament
 
-## La gracia
+          ## La gracia
 
-    python -m pytest tests/test_the_joke.py::test_the_whole_thing_was_unnecessary
+              python -m pytest tests/test_the_joke.py::test_the_whole_thing_was_unnecessary
 
-El coliseo entero produce exactamente lo mismo que JAJAJA solo.
-Todo el proyecto existe para demostrar que todo el proyecto era innecesario.
+          El coliseo entero produce exactamente lo mismo que JAJAJA solo.
+          Todo el proyecto existe para demostrar que todo el proyecto era innecesario.
 
----
+          ---
 
-### Gatito del día 🐱
+          ### Gatito del día 🐱
 
-```
-{cat}
-```
+          ```
+          {cat}
+          ```
 
-*Actualizado automáticamente por CI • {date} UTC*
+          *Actualizado automáticamente por CI • {date} UTC*
 
----
+          ---
 
-## En Honor a todos mis gatitas/os 🐱❤️
-'''.format(cat=cat, date=__import__('datetime').datetime.utcnow().strftime('%Y-%m-%d %H:%M'))
+          ## En Honor a todos mis gatitas/os 🐱❤️
+          '''.format(cat=cat, date=__import__('datetime').datetime.utcnow().strftime('%Y-%m-%d %H:%M'))
           with open('README.md', 'w', encoding='utf-8') as f:
               f.write(readme)
           print('README actualizado')
