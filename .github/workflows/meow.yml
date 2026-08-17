@@ -16,28 +16,117 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  test-and-meow:
+  # Fast unit tests - no external runtimes needed
+  test-unit:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-    
+    timeout-minutes: 15
     steps:
       - name: 📥 Checkout
         uses: actions/checkout@v4
-
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: 📦 Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-cov PyYAML
-
-      - name: 🧪 Run tests (the joke)
+      - name: 🧪 Run unit tests
         run: |
-          python -m pytest tests/ -v --tb=short
+          python -m pytest tests/test_protocol.py tests/test_frontier.py tests/test_cat.py tests/test_arena.py tests/test_cli.py tests/test_dataflow.py tests/test_provenance.py tests/test_roster.py -v --tb=short
 
+  # Tests requiring external runtimes
+  test-gladiators:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov PyYAML
+      - name: 🔧 Install external runtimes
+        run: |
+          sudo apt-get update && sudo apt-get install -y \
+            nodejs npm \
+            cargo \
+            golang-go \
+            openjdk-17-jdk \
+            lua5.4 \
+            tcl \
+            racket \
+            swi-prolog \
+            sbcl \
+            dotnet-sdk-8.0 \
+            php \
+            ruby \
+            swift \
+            jq
+          # Rust already has cargo
+      - name: 🧪 Run gladiator tests
+        run: |
+          python -m pytest tests/test_gladiator_brainfuck.py tests/test_gladiator_rust.py tests/test_interpreters.py -v --tb=short
+
+  # Integration tests - full tournament flow
+  test-integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov PyYAML
+      - name: 🧪 Run integration tests
+        run: |
+          python -m pytest tests/test_tournament.py tests/test_the_joke.py tests/test_the_cat_is_a_cat.py -v --tb=short
+
+  # Judge/validation tests
+  test-judge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov PyYAML
+      - name: 🧪 Run judge tests
+        run: |
+          python -m pytest tests/test_judge.py -v --tb=short
+
+  # Generate cat and update README - runs after all tests pass
+  generate-and-update:
+    needs: [test-unit, test-gladiators, test-integration, test-judge]
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: 📦 Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov PyYAML
       - name: 🐱 Generate cat for README
         id: meow
         run: |
@@ -46,9 +135,7 @@ jobs:
           echo "meow<<EOF" >> $GITHUB_OUTPUT
           cat cat.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-
       - name: 📝 Update README with cat
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
           python -c "
           import os
@@ -85,14 +172,13 @@ jobs:
           with open('README.md', 'w', encoding='utf-8') as f:
               f.write(readme)
           print('README actualizado')
-
       - name: 📤 Commit README if changed
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git diff --quiet README.md || (git add README.md && git commit -m "🐱 Actualiza gatito del día $(date -u +'%Y-%m-%d')" && git push)
 
+  # Lightweight daily job
   meow-only:
     if: github.event_name == 'schedule'
     runs-on: ubuntu-latest
