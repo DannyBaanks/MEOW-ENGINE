@@ -34,46 +34,47 @@ jobs:
       - name: 🐱 Generate cat for README
         id: meow
         run: |
-          CATS=(
-            "      |\\      _,,,---,,_
+          python -c "
+import random, sys
+cats = [
+    '''      |\\      _,,,---,,_
 ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\\ (  '-' 
-    '---''(_/--'  `-'\\_)"
-            "      |\\      _,,,---,,_
+     |,4-  ) )-,_. ,\ (  '-' 
+    '---''(_/--'  \`-'\\_)''',
+    '''      |\\      _,,,---,,_
 ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\\ (  '-' 
-    '---''(_/--'  \\_-')"
-            "      |\\      _,,,---,,_
+     |,4-  ) )-,_. ,\ (  '-' 
+    '---''(_/--'  \\_-')''',
+    '''      |\\      _,,,---,,_
 ZZZzz /,`.-'`'    -.  ;-;;,_
-     |,4-  ) )-,_. ,\\ (  '-' 
-    '---''(_/--'  \\_\\')"
-            "      |
+     |,4-  ) )-,_. ,\ (  '-' 
+    '---''(_/--'  \\_\\')''',
+    '''      |
    / \\__
   (    @\\___
   /         O
  /   (_____/
-/_____/   U"
-            "      |
+/_____/   U''',
+    '''      |
     \\   /
      |  |
     /   \\
    |     |
    |  .  |
     \\___/
-    ___|___"
-          )
-          RANDOM_CAT=${CATS[$RANDOM % ${#CATS[@]}]}
-          echo "cat<<'EOF'>>$GITHUB_OUTPUT
-meow=$RANDOM_CAT
-EOF"
-      
+    ___|___'''
+]
+print(cats[random.randrange(len(cats))])
+" > cat.txt
+          cat cat.txt
+          echo "meow<<EOF" >> $GITHUB_OUTPUT
+          cat cat.txt >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
       - name: 📝 Update README with cat
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         run: |
-          # Extract the cat from step output
-          CAT="${{ steps.meow.outputs.meow }}"
-          
-          # Create new README with cat at the end
+          CAT=$(cat cat.txt)
           cat > README.md <<'EOF'
 # MEOW-ENGINE
 
@@ -100,6 +101,9 @@ ${CAT}
 
 *Actualizado automáticamente por CI • $(date -u +"%Y-%m-%d %H:%M UTC")*
 
+---
+
+## En Honor a todos mis gatitas/os 🐱❤️
 EOF
 
       - name: 📤 Commit README if changed
