@@ -1,6 +1,7 @@
 {
   "language": "python",
-  "runtime": {"cmd": ["python", "{root}/gladiator.py"], "native": false},
-  "disciplines": ["construct"],
-  "arenas": ["ears", "padding"]
+  "runtime": {"cmd": ["python", "{root}/gladiator.py"], "native": true},
+  "disciplines": ["construct", "validate"],
+  "arenas": ["cheeks", "ears", "eyes", "geometry", "head_top",
+             "mouth", "newlines", "nose", "padding", "whiskers"]
 }
