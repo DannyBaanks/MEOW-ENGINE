@@ -2,6 +2,10 @@
   "language": "coffeescript",
   "runtime": {
     "cmd": [
+      "cmd.exe",
+      "/d",
+      "/s",
+      "/c",
       "coffee",
       "{root}/gladiator.coffee"
     ],

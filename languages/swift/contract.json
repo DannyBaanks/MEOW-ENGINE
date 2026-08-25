@@ -2,7 +2,7 @@
   "language": "swift",
   "runtime": {
     "cmd": [
-      "swift",
+      "{root}/run_swift.bat",
       "{root}/gladiator.swift"
     ],
     "native": true

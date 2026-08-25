@@ -2,7 +2,7 @@
   "language": "scala",
   "runtime": {
     "cmd": [
-      "scala",
+      "scala.cmd",
       "{root}/gladiator.scala"
     ],
     "native": true

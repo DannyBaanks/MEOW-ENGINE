@@ -2,7 +2,7 @@
   "language": "elixir",
   "runtime": {
     "cmd": [
-      "elixir",
+      "elixir.bat",
       "{root}/gladiator.exs"
     ],
     "native": true

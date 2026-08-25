@@ -2,7 +2,7 @@
   "language": "groovy",
   "runtime": {
     "cmd": [
-      "groovy",
+      "groovy.cmd",
       "{root}/gladiator.groovy"
     ],
     "native": true
