@@ -132,9 +132,13 @@ jobs:
         run: |
           python generate_cat.py
           cat cat.txt
-          echo "meow<<EOF" >> $GITHUB_OUTPUT
-          cat cat.txt >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          delimiter="MEOW_EOF_$(date +%s%N)"
+          {
+            echo "meow<<$delimiter"
+            cat cat.txt
+            echo
+            echo "$delimiter"
+          } >> "$GITHUB_OUTPUT"
       - name: 📝 Update README with cat
         run: |
           python -c "
