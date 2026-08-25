@@ -141,7 +141,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
       - name: 📝 Update README with cat
         run: |
-          python -c "
+          python - <<'PYEOF'
           import os
           cat = open('cat.txt', 'r', encoding='utf-8').read()
           readme = '''# MEOW-ENGINE
@@ -176,6 +176,7 @@ jobs:
           with open('README.md', 'w', encoding='utf-8') as f:
               f.write(readme)
           print('README actualizado')
+          PYEOF
       - name: 📤 Commit README if changed
         run: |
           git config user.name "github-actions[bot]"
