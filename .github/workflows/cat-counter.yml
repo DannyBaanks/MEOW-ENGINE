@@ -1,0 +1,89 @@
+name: 🧮 Gatito Counter
+
+on:
+  workflow_run:
+    workflows: ["🐱 MEOW CI"]
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  count-days:
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'master'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: 🧮 Contar días de no-gato
+        run: |
+          python - <<'PY'
+          from datetime import date
+          from pathlib import Path
+          import re
+
+          path = Path("README.md")
+          text = path.read_text(encoding="utf-8")
+
+          match = re.search(
+              r"Actualizado automáticamente por CI • (\d{4}-\d{2}-\d{2})",
+              text
+          )
+
+          if not match:
+              raise SystemExit("MEOW no dejó fecha :(")
+
+          fecha_meow = date.fromisoformat(match.group(1))
+          inicio = date(2026, 8, 25)
+
+          dia = (fecha_meow - inicio).days + 1
+
+          bloque = f"""<!-- GATITO_COUNTER_START -->
+
+          ### 🧪 Experimento del gatito infinito
+
+          **Día {dia}** esperando que `Gatito del día` produzca un gato de verdad.
+
+          El experimento comenzó el **25 de agosto de 2026**.
+          Este contador no toca el generador ni decide qué animal salió:
+          simplemente lee la fecha dejada por MEOW CI y cuenta los días.
+
+          Nuestra versión innecesariamente automatizada del experimento
+          de los monos y la máquina de escribir.
+
+          <!-- GATITO_COUNTER_END -->"""
+
+          old = re.compile(
+              r"<!-- GATITO_COUNTER_START -->.*?<!-- GATITO_COUNTER_END -->",
+              re.S
+          )
+
+          if old.search(text):
+              text = old.sub(bloque, text)
+          else:
+              stamp = re.search(
+                  r"\*Actualizado automáticamente por CI • [^\n]+\*",
+                  text
+              )
+              text = text[:stamp.end()] + "\n\n" + bloque + text[stamp.end():]
+
+          path.write_text(text, encoding="utf-8")
+
+          print(f"🐱 Día {dia} — seguimos sin saber si esto es un gato")
+          PY
+
+      - name: 📤 Actualizar contador
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git diff --quiet README.md || (
+            git add README.md &&
+            git commit -m "🧮 Actualiza contador del gatito [skip ci]" &&
+            git push
+          )
