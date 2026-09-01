@@ -3,6 +3,9 @@ __pycache__/
 .pytest_cache/
 target/
 *.ablated
+*.exp
+.scala-build/
+.bsp/
 
 # Scala build artifacts
 languages/scala/.bsp/
